@@ -75,6 +75,16 @@ class linkedList:
             current = current.next
         print('======================')
 
+    def deleteNode(self, node):
+        current = self.head
+        while current != None:
+            if current.next.data == node.data:
+                current.next = current.next.next
+                current.next
+            
+            current = current.next
+
+
     def getLength(self):
         """
         Returns the length of the list.
