@@ -152,3 +152,31 @@ def RANSAC(points1, points2, N, sigma=1):
             best_H = H
             best_inliners = inliners
     return best_H, best_inliners
+
+def create_panorama(reference_image, transform_image, H):
+    hr, wr = reference_image.shape[:2]
+    ht, wt = transform_image.shape[:2]
+
+    corners_t = np.float32([[0, 0], [wt, 0], [0, ht], [wt, ht]]).T
+    corners_t = np.concatenate((corners_t, np.ones((1, 4))), axis=0)
+    corners_t_homog = H.dot(corners_t)
+    corners_t_homog = corners_t_homog / corners_t_homog[-1]
+
+    corners_r = np.float32([[0, 0], [wr, 0], [0, hr], [wr, hr]]).T
+    all_corners = np.concatenate((corners_t_homog[:2], corners_r), axis=1)
+
+    xmin = int(np.min(all_corners[0]))
+    xmax = int(np.max(all_corners[0]))
+    ymin = int(np.min(all_corners[1]))
+    ymax = int(np.max(all_corners[1]))
+
+    max_width = int(np.linalg.norm(xmax - xmin))
+    max_height = int(np.linalg.norm(ymax - ymin))
+
+    tx = min(0, xmin)
+    ty = min(0, ymin)
+    T = np.array(([[1], [0], [-tx]], [[0], [1], [-ty]], [[0], [0], [1]])).reshape((3, 3))
+
+    transformed_image = cv2.warpPerspective(transform_image, T.dot(H), (max_width, max_height))
+    transformed_image[-ty:-ty+hr, -tx:-tx+wr] = reference_image
+    return
