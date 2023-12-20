@@ -179,4 +179,4 @@ def create_panorama(reference_image, transform_image, H):
 
     transformed_image = cv2.warpPerspective(transform_image, T.dot(H), (max_width, max_height))
     transformed_image[-ty:-ty+hr, -tx:-tx+wr] = reference_image
-    return
+    return transformed_image
