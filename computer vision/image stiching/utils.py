@@ -157,7 +157,7 @@ def RANSAC(points1, points2, N, sigma=1):
         H = DLT_algorithm(sample1, sample2)
         points1_homog = np.append(points1, np.ones((points1.shape[0], 1)), 1)
         estimated_points2_homog = np.dot(H, points1_homog.T).T
-        estimated_points2 = estimated_points2_homog[:, :2] / estimated_points2_homog[:, 2][:, np.newaxis]
+        estimated_points2 = estimated_points2_homog[:, :2] / (estimated_points2_homog[:, 2][:, np.newaxis] + 1e-10)
         distances = np.sqrt(np.sum((estimated_points2 - points2) ** 2, axis=1))
         inliners = distances < threshold
         num_inliners = np.sum(inliners)
