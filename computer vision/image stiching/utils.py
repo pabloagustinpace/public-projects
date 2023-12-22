@@ -2,10 +2,15 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
-def get_the_N_information(image, n=200):
-    sift = cv2.SIFT_create()
-    keypoints, descriptors = sift.detectAndCompute(image, None)
-    print('The number of keypoints with sift is {}'.format(len(keypoints)))
+def get_the_N_information(image, detector, n=200):
+    if detector == 'SIFT':
+        sift = cv2.SIFT_create()
+        keypoints, descriptors = sift.detectAndCompute(image, None)
+    else:
+        orb = cv2.ORB_create()
+        keypoints, descriptors = orb.detectAndCompute(image, None)
+
+    print('The number of keypoints with {} is {}'.format(detector, len(keypoints)))
 
     # Convierte los keypoints en un array de NumPy para el valor de respuesta
     responses = np.array([kp.response for kp in keypoints])
@@ -15,10 +20,12 @@ def get_the_N_information(image, n=200):
 
     # Reordena los keypoints usando los índices ordenados
     keypoints_sorted = [keypoints[i] for i in indices][:200]
+    # import pdb; pdb.set_trace()
     descriptors_sorted = descriptors[indices][:200]
 
     img_kp = cv2.drawKeypoints(image, keypoints_sorted, None, color=(255,0,0))
     plt.imshow(img_kp)
+    plt.show()
     return keypoints_sorted, descriptors_sorted
 
 def create_distance_matrix(descriptor_1, descriptor_2):
