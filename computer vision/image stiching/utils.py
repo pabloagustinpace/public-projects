@@ -28,13 +28,20 @@ def get_the_N_information(image, detector, n=200):
     plt.show()
     return keypoints_sorted, descriptors_sorted
 
-def create_distance_matrix(descriptor_1, descriptor_2):
+def create_distance_matrix(descriptor_1, descriptor_2, descriptor):
     width = descriptor_1.shape[0]
     distance = np.zeros((width, width))
-    for i in range(width):
-        one_row_matrix = np.reshape(descriptor_1[i], (1, -1)).repeat(width, 0)
-        dist = np.sqrt(np.sum((one_row_matrix - descriptor_2) ** 2, 1))
-        distance[i] = dist
+    if descriptor == 'SIFT':
+        for i in range(width):
+            one_row_matrix = np.reshape(descriptor_1[i], (1, -1)).repeat(width, 0)
+            dist = np.sqrt(np.sum((one_row_matrix - descriptor_2) ** 2, 1))
+            distance[i] = dist
+    else:
+        for i in range(width):
+            for j in range(width):
+                # Calcula la distancia de Hamming entre dos vectores
+                # Asegúrate de que tus descriptores son adecuados para este tipo de operación
+                distance[i, j] = np.sum(descriptor_1[i] != descriptor_2[j])
     return distance
 
 def NN_and_cross_validation(distance_matrix):
@@ -55,8 +62,8 @@ def NN_and_cross_validation(distance_matrix):
                 correspondances.append(match)
     return correspondances
 
-def create_correspondances(descriptor_1, descriptor_2):
-    dis = create_distance_matrix(descriptor_1, descriptor_2)
+def create_correspondances(descriptor_1, descriptor_2, descriptor):
+    dis = create_distance_matrix(descriptor_1, descriptor_2, descriptor)
     corr = NN_and_cross_validation(dis)
     return corr
 
