@@ -2,3 +2,4 @@
 **/images
 **/output_images
 corner_tracking_patch.mp4
+**/__pycache__
