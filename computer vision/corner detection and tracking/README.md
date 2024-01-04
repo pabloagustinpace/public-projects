@@ -11,7 +11,7 @@ This project focuses on implementing a Harris corner detector and tracking corne
 ## Installation
 - Clone the repository
 - Install the required Python packages:
-  ```bash
+```bash
 pip install numpy scipy opencv-python
 ```
 
