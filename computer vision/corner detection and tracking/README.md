@@ -30,6 +30,7 @@ pip install numpy scipy opencv-python
 
 ## Output
 - In this gif we can see the output of the keypoint tracking. We can see that the green lines that follow the flow are related to the movement of the camera.
+
 ![Demo](demo-gif.gif)
 
 ## Acknowledgments
