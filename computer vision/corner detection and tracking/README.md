@@ -28,5 +28,9 @@ pip install numpy scipy opencv-python
 - Run `main.ipynb` in Jupyter Notebook to view the implementation and examples.
 - Utilize `utils.py` for custom corner detection and tracking functionalities.
 
+## Output
+- In this gif we can see the output of the keypoint tracking. We can see that the green lines that follow the flow are related to the movement of the camera.
+![Demo](demo-gif.gif)
+
 ## Acknowledgments
 Special thanks to Prof. Renato Martins (Universitê de Bourgogne) for providing the guidelines and resources for this project.
