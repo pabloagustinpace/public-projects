@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 3. Start Jupyter Notebook:
 ```bash
-jupyter notebook epipolar_geometry.ipynb
+jupyter notebook main.ipynb
 ```
 
 ## Project Description
