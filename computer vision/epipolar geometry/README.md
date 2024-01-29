@@ -35,18 +35,13 @@ The final section of the notebook presents the results of fundamental matrix est
 First we will see the results for the given correspondances:
 
 ![Epilines for the left image](results/left_8p.jpg)
-*Epilines for the left image*
 
 ![Epilines for the right image](results/right_8p.jpg)
-*Epilines for the right image*
-
 Using SIFT detectors:
 
 ![Epilines for the left image](results/left_sift.jpg)
-*Epilines for the left image*
 
 ![Epilines for the right image](results/right_sift.jpg)
-*Epilines for the right image*
 
 ## Dependencies
 - OpenCV
