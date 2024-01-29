@@ -1,7 +1,7 @@
-# Welcome to My Computer Vision and Data Structures Projects
+# Welcome to My Computer Vision and Algorithm Implementation Projects
 
 ## Overview
-Welcome to my repository of public projects! This space is dedicated to showcasing my work in the fields of computer vision and data structures. Feel free to explore and gain insights from these projects.
+Welcome to my repository of public projects! This space is dedicated to showcasing my work in the fields of computer vision and Algorithm Implementation. Feel free to explore and gain insights from these projects.
 
 ## Computer Vision Projects
 In the `computer_vision` directory, you'll find a variety of projects related to image processing, machine learning, and more. Each project includes:
@@ -9,8 +9,8 @@ In the `computer_vision` directory, you'll find a variety of projects related to
 - Detailed documentation
 - Example outputs
 
-## Data Structures
-Navigate to the `data_structures` directory for projects focusing on algorithmic solutions and efficient data management. Here, you'll see:
+## Algorithm Implementation
+Navigate to the `Algorithm` directory for projects focusing on algorithmic solutions and efficient data management. Here, you'll see:
 - Implementations of complex data structures
 - Optimization techniques
 - Real-world applications
