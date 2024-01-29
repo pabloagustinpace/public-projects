@@ -37,6 +37,7 @@ First we will see the results for the given correspondances:
 ![Epilines for the left image](results/left_8p.jpg)
 
 ![Epilines for the right image](results/right_8p.jpg)
+
 Using SIFT detectors:
 
 ![Epilines for the left image](results/left_sift.jpg)
