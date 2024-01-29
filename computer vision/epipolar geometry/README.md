@@ -32,11 +32,19 @@ Go through the `epipolar_geometry.ipynb` notebook for a detailed implementation 
 ## Results
 The final section of the notebook presents the results of fundamental matrix estimation, demonstrating the effectiveness of the 8-Point Algorithm in epipolar geometry.
 
-![Alt text for image 1](path_to_image1.jpg)
-*Caption for image 1*
+First we will see the results for the given correspondances:
+![Epilines for the left image](results/left_8p.jpg)
+*Epilines for the left image*
 
-![Alt text for image 2](path_to_image2.jpg)
-*Caption for image 2*
+![Epilines for the right image](results/right_8p.jpg)
+*Epilines for the right image*
+
+Using SIFT detectors:
+![Epilines for the left image](results/left_sift.jpg)
+*Epilines for the left image*
+
+![Epilines for the right image](results/right_sift.jpg)
+*Epilines for the right image*
 
 ## Dependencies
 - OpenCV
